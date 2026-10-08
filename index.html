@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="https://global.media.stux.games/icon.png">
+    <meta name="description" content="Stux.Games — this game or site is down for maintenance and respawning shortly.">
+    <title>Stux.Games — Down for Maintenance</title>
+    <link rel="stylesheet" href="/assets/fonts/fonts.css">
+    <link rel="stylesheet" href="/assets/site-banner.css">
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        :root {
+            --font-sans: 'Oxanium', system-ui, -apple-system, sans-serif;
+            --radius-sm: 6px; --radius-md: 12px; --radius-lg: 18px; --radius-xl: 26px;
+            --ease: cubic-bezier(0.4, 0, 0.2, 1); --dur: 160ms;
+        }
+        [data-theme="dark"] {
+            --accent: #FFBA1A; --accent-deep: #855D00;
+            --bg: #0E0B04; --bg-card: #1B1608; --bg-elevated: #221B0B; --screen: #070502;
+            --border: rgba(255,186,26,0.10); --border-mid: rgba(255,186,26,0.20); --border-strong: rgba(255,186,26,0.38);
+            --text: #F5EFDF; --text-muted: #A8956A;
+            --glow: rgba(255,186,26,0.10); --dot: rgba(255,186,26,0.07); --scan: rgba(0,0,0,0.18);
+            --badge-bg: rgba(255,186,26,0.12); --badge-border: rgba(255,186,26,0.24); --btn-text: #1A1300;
+        }
+        [data-theme="light"] {
+            --accent: #855D00; --accent-deep: #855D00;
+            --bg: #FBF8EF; --bg-card: #FFFFFF; --bg-elevated: #F5EEDA; --screen: #1B1608;
+            --border: rgba(133,93,0,0.14); --border-mid: rgba(133,93,0,0.26); --border-strong: rgba(133,93,0,0.45);
+            --text: #261C04; --text-muted: #6A5730;
+            --glow: rgba(255,186,26,0.16); --dot: rgba(133,93,0,0.08); --scan: rgba(133,93,0,0.03);
+            --badge-bg: rgba(133,93,0,0.09); --badge-border: rgba(133,93,0,0.22); --btn-text: #FFFFFF;
+        }
+
+        html, body {
+            background: var(--bg); color: var(--text); font-family: var(--font-sans);
+            min-height: 100vh; display: flex; align-items: center; justify-content: center; position: relative;
+            overflow-x: hidden; transition: background 0.3s, color 0.3s;
+        }
+        /* The play-field: a faint pixel-dot grid and CRT scanlines under a gold glow. */
+        body::before {
+            content: ''; position: fixed; inset: 0; pointer-events: none;
+            background:
+                radial-gradient(ellipse 70% 45% at 50% 0%, var(--glow), transparent),
+                radial-gradient(var(--dot) 1px, transparent 1.5px) 0 0 / 14px 14px;
+        }
+        body::after {
+            content: ''; position: fixed; inset: 0; pointer-events: none;
+            background: repeating-linear-gradient(to bottom, transparent 0 2px, var(--scan) 2px 3px);
+        }
+
+        a, a:visited { color: var(--accent); text-decoration: none; }
+        a:hover, a:focus { opacity: 0.85; }
+
+        .wrapper { position: relative; z-index: 1; display: flex; flex-direction: column; align-items: center; text-align: center; padding: 3.5rem 1.25rem 2rem; max-width: 620px; width: 100%; }
+
+        .logo { margin-bottom: 1.75rem; }
+        .logo img { max-height: 64px; max-width: 100%; height: auto; width: auto; }
+        .logo a { display: inline-block; transition: transform var(--dur) var(--ease); }
+        .logo a:hover { transform: scale(1.03); opacity: 1; }
+        [data-theme="dark"] .for-light, [data-theme="light"] .for-dark { display: none; }
+
+        .badge {
+            display: inline-flex; align-items: center; gap: 8px; background: var(--badge-bg); border: 1px solid var(--badge-border);
+            border-radius: 100px; padding: 6px 16px 6px 12px; font-size: 12px; font-weight: 600; color: var(--accent);
+            letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 1.75rem;
+        }
+        .badge-dot { width: 7px; height: 7px; background: var(--accent); animation: blink 1.1s steps(2, start) infinite; }
+        @keyframes blink { to { visibility: hidden; } }
+
+        h1 { font-size: clamp(1.9rem, 6vw, 2.7rem); font-weight: 600; line-height: 1.12; letter-spacing: -0.01em; margin-bottom: 1rem; }
+        h1 em { font-style: normal; color: var(--accent); text-shadow: 0 0 22px var(--glow); }
+        .tagline { color: var(--text-muted); font-size: 1rem; line-height: 1.7; max-width: 470px; margin: 0 auto 2rem; }
+
+        .card {
+            width: 100%; background: var(--bg-card); border: 1px solid var(--border-mid); border-radius: var(--radius-xl);
+            padding: 1.6rem 1.75rem; margin-bottom: 2.25rem; text-align: left;
+            box-shadow: 0 18px 50px -30px rgba(0,0,0,0.6), inset 0 1px 0 rgba(255,255,255,0.03);
+        }
+        .card-label { font-size: 0.76rem; font-weight: 600; color: var(--text-muted); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 0.9rem; }
+        .btn-list { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 1.4rem; }
+        .btn-list a {
+            display: flex; align-items: center; gap: 10px; padding: 11px 14px; border-radius: var(--radius-md); justify-content: center;
+            font-size: 14px; font-weight: 500; border: 1px solid var(--border-mid); background: var(--badge-bg); color: var(--accent);
+            transition: background var(--dur) var(--ease), border-color var(--dur) var(--ease), transform var(--dur) var(--ease);
+        }
+        .btn-list a.primary { background: var(--accent); color: var(--btn-text); border-color: var(--accent); }
+        .btn-list a:hover { border-color: var(--border-strong); opacity: 1; transform: translateY(-1px); }
+        .btn-list a svg { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; flex-shrink: 0; }
+        @media (max-width: 480px) { .btn-list { grid-template-columns: 1fr; } .card { padding: 1.3rem 1.1rem; } }
+
+        #theme-toggle {
+            position: fixed; top: 14px; right: 14px; z-index: 100; background: var(--badge-bg); border: 1px solid var(--badge-border);
+            border-radius: 50%; width: 38px; height: 38px; font-size: 15px; text-align: center; cursor: pointer;
+            padding: 0; color: var(--accent); display: flex; align-items: center; justify-content: center; transition: background var(--dur) var(--ease);
+        }
+        #theme-toggle:hover { opacity: 0.85; }
+
+        .footer-links { font-size: 0.8rem; color: var(--text-muted); }
+
+        .site-banners { --banner-page-bg: var(--bg); --banner-text: var(--text); --banner-site: #FFBA1A; --banner-site-light: #855D00; }
+        :root.has-site-banner.site-banner-fixed body { padding-top: var(--banner-h); }
+        :root.has-site-banner #theme-toggle { top: calc(14px + var(--banner-h)); }
+
+        /* "Stux.Games | Every Stux.Games game": muted until hovered or focused. (GitHub Pages
+           site: no Powered by Stuxedo badge.) */
+        .powered { display: flex; align-items: center; justify-content: center; gap: .6rem; flex-wrap: wrap; margin-top: 1.25rem; font-size: 0.8rem; }
+        .powered-item, .powered-item:visited { display: inline-flex; align-items: center; color: var(--text-muted); transition: color .2s; }
+        .powered-item:hover, .powered-item:focus-visible { color: var(--text); opacity: 1; }
+        .powered-sep { color: var(--border-strong); }
+        .powered-logo { height: 28px; width: auto; display: block;
+            filter: grayscale(1) brightness(1); opacity: .7; transition: filter .2s ease, opacity .2s ease; }
+        .powered-item:hover .powered-logo, .powered-item:focus-visible .powered-logo { filter: grayscale(0) brightness(1); opacity: 1; }
+        .made { margin-top: .75rem; font-size: 0.8rem; color: var(--text-muted); }
+        .made a, .made a:visited { color: var(--text-muted); transition: color .2s; }
+        .made a:hover, .made a:focus-visible { color: var(--text); opacity: 1; }
+        .made-icon { display: inline-block; width: 1em; height: 1em; vertical-align: -0.125em; }
+        .made-love { font-size: 0.85em; color: #e5484d; } .made-code { font-size: 1em; color: #30a46c; } .made-coffee { font-size: 0.95em; color: #a0703f; }
+        .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+
+        /* Respawn screen: a looping respawn bar and the server patch checklist. */
+        .respawn { position: relative; height: 12px; border-radius: 6px; background: rgba(255,186,26,0.12); overflow: hidden; }
+        .respawn::after { content: ''; position: absolute; inset: 0; width: 40%; border-radius: 6px; background: linear-gradient(90deg, transparent, #FFBA1A, transparent); animation: sweep 1.8s var(--ease) infinite; }
+        @keyframes sweep { from { transform: translateX(-100%); } to { transform: translateX(250%); } }
+        .respawn-text { margin: .6rem 0 1.2rem; font-size: .8rem; font-weight: 600; letter-spacing: .3em; color: var(--accent); }
+        .respawn-text span { animation: blink 1.1s steps(2, start) infinite; }
+        .checklist { list-style: none; display: grid; gap: 8px; }
+        .checklist li { display: flex; align-items: center; gap: 12px; padding: 10px 12px; border: 1px solid var(--border); border-radius: 10px; background: var(--bg-elevated); font-size: .9rem; }
+        .checklist .state { margin-left: auto; font-size: .72rem; letter-spacing: .12em; text-transform: uppercase; color: var(--text-muted); }
+        .checklist .now .state { color: var(--accent); }
+        .key { flex-shrink: 0; display: inline-grid; place-items: center; width: 26px; height: 26px; border-radius: 50%; border: 2px solid var(--border-strong); font-size: .72rem; font-weight: 600; color: var(--accent); }
+        .now .key { background: var(--accent); color: var(--btn-text); border-color: var(--accent); box-shadow: 0 0 12px rgba(255,186,26,0.45); }
+
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after { animation: none !important; transition: none !important; }
+        }
+    </style>
+</head>
+<body>
+    <button id="theme-toggle" title="Toggle light/dark mode" aria-label="Toggle light/dark mode">&#9788;</button>
+
+    <main class="wrapper">
+        <div class="badge"><span class="badge-dot"></span>Maintenance</div>
+
+        <div class="logo">
+            <a href="https://stux.games" target="_blank" rel="noopener" title="Stux.Games">
+                <img class="for-light" src="https://global.media.stux.games/logo.png" alt="Stux.Games Logo">
+                <img class="for-dark" src="https://global.media.stux.games/logo-light.png" alt="Stux.Games Logo">
+            </a>
+        </div>
+
+        <h1>Respawning<br><em>shortly.</em></h1>
+        <p class="tagline">This game or site is down for maintenance while we patch things up. Nothing's lost &mdash; it'll be back before the next round starts.</p>
+
+        <section class="card" aria-labelledby="respawn-label">
+            <p class="card-label" id="respawn-label">Server status</p>
+            <div class="respawn" aria-hidden="true"></div>
+            <p class="respawn-text" aria-hidden="true">RESPAWNING<span>&hellip;</span></p>
+            <ul class="checklist">
+                <li class="now"><span class="key" aria-hidden="true">A</span> Patching servers <span class="state">In progress</span></li>
+                <li><span class="key" aria-hidden="true">B</span> Testing every level <span class="state">Up next</span></li>
+                <li><span class="key" aria-hidden="true">X</span> Back online <span class="state">Soon</span></li>
+            </ul>
+            <div class="btn-list">
+                <a class="primary" href="https://status.stux.games" target="_blank" rel="noopener" title="Stux.Games live status"><svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="2,12 6,12 9,5 13,19 16,12 22,12" /></svg> Live Status</a>
+                <a href="mailto:hello@stux.games" title="Email Stux.Games"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2" /><polyline points="2,4 12,13 22,4" /></svg> Contact Us</a>
+            </div>
+        </section>
+
+
+        <p class="footer-links">
+            <a href="/changelog" id="version-link">Changelog</a>
+            &middot;
+            <a href="/legal">Boring Legal Stuff</a>
+            &middot;
+            <a href="/sitemap/">Sitemap</a>
+        </p>
+        <div class="powered">
+            <a href="https://stux.games" class="powered-item" target="_blank" rel="noopener">
+                <img class="powered-logo for-light" src="https://global.media.stux.games/logo.png" alt="Stux.Games" title="Stux.Games" height="28">
+                <img class="powered-logo for-dark" src="https://global.media.stux.games/logo-light.png" alt="Stux.Games" title="Stux.Games" height="28">
+            </a>
+            <span class="powered-sep" aria-hidden="true">|</span>
+            <a href="https://games.stux.games" class="powered-item" target="_blank" rel="noopener">Every Stux.Games Game</a>
+        </div>
+        <p class="made">Created with <svg class="made-icon made-love" viewBox="0 0 24 24" width="13" height="13" aria-hidden="true" focusable="false"><title>Love</title><path fill="currentColor" d="M12 21.2 10.6 20C5.4 15.3 2 12.2 2 8.4 2 5.3 4.4 3 7.4 3c1.7 0 3.4.8 4.6 2.1C13.2 3.8 14.9 3 16.6 3 19.6 3 22 5.3 22 8.4c0 3.8-3.4 6.9-8.6 11.6z"/></svg> / <svg class="made-icon made-code" viewBox="0 0 24 24" width="13" height="13" aria-hidden="true" focusable="false"><title>Code</title><path fill="currentColor" d="M8.3 6.3 9.7 7.7 5.4 12l4.3 4.3-1.4 1.4L2.6 12zm7.4 0L21.4 12l-5.7 5.7-1.4-1.4 4.3-4.3-4.3-4.3zM13.6 3.7l1.9.6-5 16-1.9-.6z"/></svg> / <svg class="made-icon made-coffee" viewBox="0 0 24 24" width="13" height="13" aria-hidden="true" focusable="false"><title>Coffee</title><path fill="currentColor" d="M3 8h14v6a5 5 0 0 1-5 5H8a5 5 0 0 1-5-5zm14 1.5h1.5a2.5 2.5 0 0 1 0 5H17v-2h1.5a.5.5 0 0 0 0-1H17zM6 2h2v4H6zm4 0h2v4h-2zM2 20h16v2H2z"/></svg><span class="sr-only"> love, code and coffee</span>
+            by <a href="https://stux.games" target="_blank" rel="noopener">Stux.Games</a></p>
+    </main>
+
+    <script>
+        (function () {
+            var root = document.documentElement;
+            var btn = document.getElementById('theme-toggle');
+            var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            var stored = null;
+            try { stored = localStorage.getItem('stuxgames-theme'); } catch (e) {}
+            var isDark = stored ? stored === 'dark' : prefersDark;
+
+            function apply(dark) {
+                root.setAttribute('data-theme', dark ? 'dark' : 'light');
+                btn.textContent = dark ? '\u2600' : '\u263E';
+                btn.title = dark ? 'Switch to light mode' : 'Switch to dark mode';
+            }
+
+            apply(isDark);
+
+            btn.addEventListener('click', function () {
+                isDark = !isDark;
+                try { localStorage.setItem('stuxgames-theme', isDark ? 'dark' : 'light'); } catch (e) {}
+                apply(isDark);
+            });
+        })();
+    </script>
+    <script>
+        if (window.parent !== window) {
+            var parentOrigin = document.referrer ? new URL(document.referrer).origin : "*";
+            window.parent.postMessage({ type: "page-title", title: document.title }, parentOrigin);
+        }
+    </script>
+    <script>
+        fetch('/VERSION.md')
+            .then(function (r) { return r.text(); })
+            .then(function (v) { document.getElementById('version-link').textContent = 'v' + v.trim(); })
+            .catch(function () {});
+    </script>
+    <script src="/assets/dev-mode.js"></script>
+    <script src="/assets/site-banners.js"></script>
+    <script src="/assets/site-banner.js"></script>
+</body>
+</html>

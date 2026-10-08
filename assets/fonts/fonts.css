@@ -1,0 +1,9 @@
+@font-face { font-family:'Oxanium'; src:url('oxanium-300-latin.woff2') format('woff2'); font-weight:300; font-style:normal; font-display:swap; }
+@font-face { font-family:'Oxanium'; src:url('oxanium-400-latin.woff2') format('woff2'); font-weight:400; font-style:normal; font-display:swap; }
+@font-face { font-family:'Oxanium'; src:url('oxanium-500-latin.woff2') format('woff2'); font-weight:500; font-style:normal; font-display:swap; }
+@font-face { font-family:'Oxanium'; src:url('oxanium-600-latin.woff2') format('woff2'); font-weight:600; font-style:normal; font-display:swap; }
+
+:root {
+    --font-sans: 'Oxanium', system-ui, -apple-system, sans-serif;
+    --font-display: 'Oxanium', system-ui, -apple-system, sans-serif;
+}

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="https://global.media.stux.games/icon.png">
+    <meta name="description" content="Privacy policy for this Stux.Games placeholder page.">
+    <title>Privacy Policy | Legal — Stux.Games</title>
+    <link rel="stylesheet" href="../assets/fonts/fonts.css">
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        :root {
+            --font-sans: 'Oxanium', system-ui, -apple-system, sans-serif;
+            --font-display: 'Oxanium', system-ui, -apple-system, sans-serif;
+        }
+        [data-theme="dark"] { --accent: #FFBA1A; --accent-bright: #FFCB52;
+            --bg: #0E0B04; --bg-card: #1B1608; --border: rgba(255,186,26,0.09);
+            --text: #F5EFDF; --text-muted: #A8956A; --badge-bg: rgba(255,186,26,0.12); --badge-border: rgba(255,186,26,0.22);
+        }
+        [data-theme="light"] { --accent: #855D00; --accent-bright: #A87800;
+            --bg: #FBF8EF; --bg-card: #FFFFFF; --border: rgba(133,93,0,0.12);
+            --text: #261C04; --text-muted: #6A5730; --badge-bg: rgba(133,93,0,0.10); --badge-border: rgba(133,93,0,0.20);
+        }
+
+        html, body { background: var(--bg); color: var(--text); font-family: var(--font-sans); min-height: 100%; transition: background 0.3s, color 0.3s; }
+        a, a:visited { color: var(--accent); text-decoration: none; }
+        a:hover, a:focus { opacity: 0.8; }
+
+        .site-header { display: flex; align-items: center; justify-content: space-between; padding: 18px 6%; }
+        .brand { display: flex; align-items: center; gap: 10px; font-weight: 600; font-size: 1.1rem; color: var(--text); font-family: var(--font-display); }
+        .brand img { height: 32px; width: auto; }
+        #theme-toggle {
+            background: var(--badge-bg); border: 1px solid var(--badge-border); border-radius: 50%;
+            width: 38px; height: 38px; font-size: 17px; line-height: 38px; text-align: center; cursor: pointer; padding: 0; color: var(--accent);
+        }
+        #theme-toggle:hover { opacity: 0.85; }
+
+        main { max-width: 680px; margin: 0 auto; padding: 10px 6% 60px; }
+        .back-link { display: inline-block; font-size: 0.85rem; margin-bottom: 20px; opacity: 0.8; font-weight: 500; }
+        h1 { font-family: var(--font-display); font-weight: 600; font-size: clamp(1.6rem, 4vw, 2.2rem); margin: 0 0 6px; }
+        .meta { color: var(--text-muted); font-size: 0.85rem; margin: 0 0 28px; }
+        h2 { font-size: 1.05rem; font-weight: 600; margin: 28px 0 8px; color: var(--text); font-family: var(--font-display); }
+        p, li { color: var(--text-muted); font-size: 0.95rem; line-height: 1.7; }
+        ul { padding-left: 22px; margin: 8px 0; }
+        strong { color: var(--text); font-weight: 600; }
+        code { background: var(--badge-bg); padding: 1px 6px; border-radius: 4px; font-size: 0.9em; }
+
+        footer { text-align: center; padding: 20px 6% 40px; font-size: 0.8rem; color: var(--text-muted); border-top: 1px solid var(--border); margin-top: 20px; }
+        footer a, footer a:visited { color: var(--text-muted); font-weight: 400; }
+        footer a:hover { opacity: 0.8; }
+        .copy-glyph { display: inline-block; vertical-align: -1px; }
+        .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+            [data-theme="dark"] .for-light, [data-theme="light"] .for-dark { display: none; }
+        .site-banners { --banner-page-bg: var(--bg); --banner-text: var(--text); --banner-site: #FFBA1A; --banner-site-light: #855D00; }
+    </style>
+    <link rel="stylesheet" href="/assets/site-banner.css">
+</head>
+<body>
+
+<header class="site-header">
+    <a class="brand" href="../"><img class="for-light" src="https://global.media.stux.games/icon.png" alt="Stux.Games"><img class="for-dark" src="https://global.media.stux.games/icon-light.png" alt="">
+        <span>Stux.Games</span></a>
+    <button type="button" id="theme-toggle" title="Toggle light/dark mode" aria-label="Toggle light/dark mode">&#9788;</button>
+</header>
+
+<main>
+    <a class="back-link" href="../legal">&larr; Boring Legal Stuff</a>
+    <h1>Privacy Policy</h1>
+    <p class="meta">Effective: September 2026</p>
+
+    <h2>The short version</h2>
+    <p>This is a plain static HTML maintenance page for a Stux.Games game or site temporarily undergoing maintenance, hosted on GitHub Pages. There's no server-side code, no database, no account system, and no forms of any kind &mdash; so there's nothing for us to collect.</p>
+
+    <h2>This website</h2>
+    <p>There is no email signup, newsletter, contact form, or any other way to submit information on this page beyond the "Contact Us" button, which just opens your own email client &mdash; nothing is sent to us through the page itself.</p>
+    <p>The Oxanium font is served from this same domain, not a third-party CDN. The only resource loaded from outside this domain is the logo and icon images, from <code>global.media.stux.games</code> &mdash; infrastructure operated by the same Stux Group Ltd chain that runs this page, not an unrelated third party.</p>
+
+    <h2>localStorage</h2>
+    <p>The only thing this page stores in your browser is a single value, <code>stuxgames-theme</code>, remembering whether you last chose light or dark mode. It never leaves your device, isn't sent to any server, and can be cleared any time via your browser's site data settings.</p>
+
+    <h2>Children's privacy</h2>
+    <p>This page isn't directed at children, but since it collects no personal information from anyone, there's nothing specific to say beyond that.</p>
+
+    <h2>Changes to this policy</h2>
+    <p>If this page grows features that collect data, this policy will be updated first to reflect exactly what's collected and why. The date above marks the most recent revision.</p>
+
+    <h2>Contact</h2>
+    <p>Questions about this policy? Contact <a href="mailto:legal@stux.games">legal@stux.games</a>.</p>
+</main>
+
+<footer>
+    <p>Stux.Games is operated by Stux Group Ltd. <svg class="copy-glyph" viewBox="0 0 16 16" width="12" height="12" aria-hidden="true" focusable="false"><title>Copyright</title><circle cx="8" cy="8" r="6.6" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M10.2 6.3A2.6 2.6 0 1 0 10.2 9.7" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg><span class="sr-only">Copyright</span> <span data-copyright-years data-start="2026">2026</span> Stux.Group. All rights reserved.</p>
+</footer>
+
+<script>
+    (function () {
+        var root = document.documentElement;
+        var btn = document.getElementById('theme-toggle');
+        var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        var stored = localStorage.getItem('stuxgames-theme');
+        var isDark = stored ? stored === 'dark' : prefersDark;
+
+        function apply(dark) {
+            root.setAttribute('data-theme', dark ? 'dark' : 'light');
+            btn.textContent = dark ? '☀' : '☾';
+            btn.title = dark ? 'Switch to light mode' : 'Switch to dark mode';
+        }
+
+        apply(isDark);
+
+        btn.addEventListener('click', function () {
+            isDark = !isDark;
+            localStorage.setItem('stuxgames-theme', isDark ? 'dark' : 'light');
+            apply(isDark);
+        });
+    })();
+</script>
+<script>(function(){var y=new Date().getFullYear();document.querySelectorAll('[data-copyright-years]').forEach(function(e){var s=parseInt(e.getAttribute('data-start'),10);e.textContent=s>=y?String(y):s+'–'+y;});})();</script>
+    <script src="/assets/dev-mode.js"></script>
+    <script src="/assets/site-banners.js"></script>
+    <script src="/assets/site-banner.js"></script>
+</body>
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="https://global.media.stux.games/icon.png">
+    <meta name="description" content="Page not found — Stux.Games">
+    <title>Page Not Found — Stux.Games</title>
+    <link rel="stylesheet" href="assets/fonts/fonts.css">
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        :root {
+            --font-sans: 'Oxanium', system-ui, -apple-system, sans-serif;
+            --font-display: 'Oxanium', system-ui, -apple-system, sans-serif;
+        }
+        [data-theme="dark"] { --accent: #FFBA1A; --accent-bright: #FFCB52;
+            --bg: #0E0B04; --text: #F5EFDF; --text-muted: #A8956A; --badge-bg: rgba(255,186,26,0.12); --border-mid: rgba(255,186,26,0.18);
+        }
+        [data-theme="light"] { --accent: #855D00; --accent-bright: #A87800;
+            --bg: #FBF8EF; --text: #261C04; --text-muted: #6A5730; --badge-bg: rgba(133,93,0,0.10); --border-mid: rgba(133,93,0,0.25);
+        }
+
+        html, body {
+            background: var(--bg); color: var(--text); font-family: var(--font-sans);
+            min-height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; transition: background 0.3s, color 0.3s;
+        }
+
+        a, a:visited { color: var(--accent); text-decoration: none; }
+        a:hover, a:focus { opacity: 0.8; }
+
+        .wrapper { padding: 2rem 1.5rem; max-width: 420px; }
+        .code { font-family: var(--font-display); font-weight: 600; font-size: clamp(3.5rem, 12vw, 5.5rem); line-height: 1; color: var(--accent); margin-bottom: 0.5rem; }
+        h1 { font-family: var(--font-display); font-weight: 600; font-size: clamp(1.3rem, 4vw, 1.7rem); margin-bottom: 0.75rem; }
+        p { color: var(--text-muted); font-size: 0.95rem; line-height: 1.7; margin-bottom: 1.75rem; }
+
+        .home-link {
+            display: inline-flex; align-items: center; gap: 8px; padding: 11px 20px; border-radius: 12px;
+            font-size: 14px; font-weight: 500; border: 1px solid var(--border-mid); background: var(--badge-bg); transition: opacity 0.2s;
+        }
+        .home-link:hover { opacity: 0.85; }
+
+        #theme-toggle {
+            position: fixed; top: 14px; right: 14px; z-index: 100; background: var(--badge-bg); border: 1px solid var(--border-mid);
+            border-radius: 50%; width: 38px; height: 38px; font-size: 15px; text-align: center; cursor: pointer;
+            padding: 0; color: var(--accent); display: flex; align-items: center; justify-content: center;
+        }
+        #theme-toggle:hover { opacity: 0.85; }
+            [data-theme="dark"] .for-light, [data-theme="light"] .for-dark { display: none; }
+        .site-banners { --banner-page-bg: var(--bg); --banner-text: var(--text); --banner-site: #FFBA1A; --banner-site-light: #855D00; }
+    </style>
+    <link rel="stylesheet" href="/assets/site-banner.css">
+</head>
+<body>
+    <button id="theme-toggle" title="Toggle light/dark mode" aria-label="Toggle light/dark mode">&#9788;</button>
+
+    <div class="wrapper">
+        <div class="code">404</div>
+        <h1>Game over for this link</h1>
+        <p>There's nothing on this level &mdash; the link might be old, or the page might have moved. Hit continue to head back.</p>
+        <a class="home-link" href="/">&larr; Continue to Stux.Games</a>
+    </div>
+
+    <script>
+        (function () {
+            var root = document.documentElement;
+            var btn = document.getElementById('theme-toggle');
+            var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            var stored = localStorage.getItem('stuxgames-theme');
+            var isDark = stored ? stored === 'dark' : prefersDark;
+
+            function apply(dark) {
+                root.setAttribute('data-theme', dark ? 'dark' : 'light');
+                btn.textContent = dark ? '☀' : '☾';
+                btn.title = dark ? 'Switch to light mode' : 'Switch to dark mode';
+            }
+
+            apply(isDark);
+
+            btn.addEventListener('click', function () {
+                isDark = !isDark;
+                localStorage.setItem('stuxgames-theme', isDark ? 'dark' : 'light');
+                apply(isDark);
+            });
+        })();
+    </script>
+    <script src="/assets/dev-mode.js"></script>
+    <script src="/assets/site-banners.js"></script>
+    <script src="/assets/site-banner.js"></script>
+</body>
+</html>
