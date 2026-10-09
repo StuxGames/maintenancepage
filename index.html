@@ -98,6 +98,8 @@
         #theme-toggle:hover { opacity: 0.85; }
 
         .footer-links { font-size: 0.8rem; color: var(--text-muted); }
+        .footer-copy { margin-bottom: .35rem; }
+        .copy-glyph { vertical-align: -1px; }
 
         .site-banners { --banner-page-bg: var(--bg); --banner-text: var(--text); --banner-site: #FFBA1A; --banner-site-light: #855D00; }
         :root.has-site-banner.site-banner-fixed body { padding-top: var(--banner-h); }
@@ -169,6 +171,7 @@
         </section>
 
 
+        <p class="footer-links footer-copy"><svg class="copy-glyph" viewBox="0 0 16 16" width="12" height="12" aria-hidden="true" focusable="false"><title>Copyright</title><circle cx="8" cy="8" r="6.6" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M10.2 6.3A2.6 2.6 0 1 0 10.2 9.7" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg><span class="sr-only">Copyright</span> <span data-copyright-years data-start="2026">2026</span> Stux.Games. All rights reserved.</p>
         <p class="footer-links">
             <a href="/changelog" id="version-link">Changelog</a>
             &middot;
@@ -227,5 +230,6 @@
     <script src="/assets/dev-mode.js"></script>
     <script src="/assets/site-banners.js"></script>
     <script src="/assets/site-banner.js"></script>
+<script>(function(){var y=new Date().getFullYear();document.querySelectorAll('[data-copyright-years]').forEach(function(e){var s=parseInt(e.getAttribute('data-start'),10);e.textContent=s>=y?String(y):s+'–'+y;});})();</script>
 </body>
 </html>

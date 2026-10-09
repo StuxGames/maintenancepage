@@ -5,6 +5,16 @@ All notable changes to the Stux.Games Maintenance Page are documented here.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/) (MAJOR.MINOR.PATCH).
 
+## v1.0.1
+
+### Added
+
+- The home page's footer has a copyright line ("© 2026 Stux.Games. All rights reserved."), like the legal pages, with the years kept current automatically
+
+### Fixed
+
+- The legal, changelog and sitemap footers name Stux.Games in the copyright line instead of Stux.Group, and no longer say Stux.Games is operated by Stux Group Ltd: that belongs on the Imprint only, which still says it
+
 ## v1.0.0
 
 ### Added
