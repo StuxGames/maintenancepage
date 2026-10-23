@@ -35,8 +35,12 @@ With DEV_MODE on, `?banner=soon,maintenance,site` previews the other banner type
 ## Releasing
 
 Update `CHANGELOG.md`, bump `VERSION.md`, then run `./commit.sh "Release message"` (or
-`commit.bat`), which commits and tags `vX.Y.Z` from `VERSION.md`. Pushing to `main` deploys
+`commit.bat`), which commits and tags `vYY.MM.DD` from `VERSION.md`. Pushing to `main` deploys
 through `.github/workflows/pages.yml`.
+
+## Versioning
+
+This project uses [Date Versioning](https://datevers.ing): each release is numbered by its UTC release date as `YY.MM.DD` (for example `26.10.23`), with `-1`, `-2`… for later releases the same day. See [CHANGELOG.md](CHANGELOG.md) for what changed in each release.
 
 ## Copyright
 
