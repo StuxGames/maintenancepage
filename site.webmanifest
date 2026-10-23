@@ -1,0 +1,27 @@
+{
+    "name": "Stux.Games Maintenance Page",
+    "short_name": "Maintenance",
+    "description": "This game or site is down for maintenance and respawning shortly.",
+    "start_url": "/",
+    "display": "browser",
+    "background_color": "#0E0B04",
+    "theme_color": "#FFBA1A",
+    "icons": [
+        {
+            "src": "/assets/icon-192.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "/assets/icon-512.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        },
+        {
+            "src": "/assets/icon-maskable-512.png",
+            "sizes": "512x512",
+            "type": "image/png",
+            "purpose": "maskable"
+        }
+    ]
+}
