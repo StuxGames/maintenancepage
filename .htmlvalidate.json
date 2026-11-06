@@ -1,8 +1,16 @@
 {
-  "extends": ["html-validate:recommended"],
+  "extends": [
+    "html-validate:recommended"
+  ],
   "rules": {
     "no-inline-style": "off",
     "attr-quotes": "off",
-    "no-implicit-button-type": "off"
+    "no-implicit-button-type": "off",
+    "valid-id": [
+      "error",
+      {
+        "relaxed": true
+      }
+    ]
   }
 }

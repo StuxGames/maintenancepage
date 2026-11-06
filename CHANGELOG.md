@@ -5,6 +5,13 @@ All notable changes to Stux.Games Maintenancepage are documented here.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Date Versioning](https://datevers.ing) since v26.10.23 (`YY.MM.DD`, the UTC release date, with `-1`, `-2`… for later releases the same day); earlier releases used [Semantic Versioning](https://semver.org/).
 
+## v26.11.06-1
+
+### Fixed
+
+- CI's `html-validate` step failed on the `discord:component-embed` id, which Discord needs for the link preview: the
+  `valid-id` rule now runs in relaxed mode, which allows the colon
+
 ## v26.11.06
 
 ### Added
