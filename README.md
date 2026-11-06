@@ -2,7 +2,7 @@
   <picture><source media="(prefers-color-scheme: dark)" srcset="https://global.media.stux.games/logo-light.png"><source media="(prefers-color-scheme: light)" srcset="https://global.media.stux.games/logo-dark.png"><img src="https://global.media.stux.games/logo-dark.png" height="100" alt="Stux.Games Logo"></picture>
 </p>
 
-# Maintenance Page
+# Stux.Games Maintenancepage
 
 The maintenance page for Stux.Games games and sites that are temporarily down.
 
