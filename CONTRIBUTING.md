@@ -8,11 +8,15 @@ This document is for anyone working on the maintenancepage.stux.games page itsel
 
 ## Local setup
 
-There's no build step or dependencies. Run `./dev-server.sh [port] [--no-dev-mode]` (or
+There's no build step or dependencies. Run `./dev-server.sh [port] [--no-dev-mode] [--lan]` (or
 `dev-server.bat` on Windows) and open `http://127.0.0.1:8000`. DEV_MODE is on by default: the
 dev router answers `/assets/dev-mode.js` with `window.SITE_DEV_MODE = true`, so every page shows
 the dev banner. `--no-dev-mode` renders exactly as production does. The server needs PHP 7.4
 (`$PHP_BIN`, `php74`, or `%LOCALAPPDATA%\Programs\PHP\7.4\php.exe`).
+
+`--lan` listens on all interfaces (`0.0.0.0`) instead of `127.0.0.1`, so a phone or another
+device on your network can open it: it prints one URL per IPv4 address (usually the
+`192.168.x.x` one). Allow PHP through the firewall if asked.
 
 ## Project conventions
 

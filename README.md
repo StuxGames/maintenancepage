@@ -26,9 +26,11 @@ It's a static site on GitHub Pages at [maintenancepage.stux.games](https://maint
 ./dev-server.sh            # http://127.0.0.1:8000, DEV_MODE on (dev banner)
 ./dev-server.sh 8080       # another port
 ./dev-server.sh --no-dev-mode   # exactly as production renders
+./dev-server.sh --lan      # also reachable from phones on your network
 ```
 
-On Windows use `dev-server.bat` with the same arguments. The server is PHP 7.4's built-in
+On Windows use `dev-server.bat` with the same arguments. `--lan` prints the addresses to open on
+the other device (usually the `192.168.x.x` one). The server is PHP 7.4's built-in
 server with `.github/dev-router.php`, which serves the folder the way GitHub Pages does.
 With DEV_MODE on, `?banner=soon,maintenance,site` previews the other banner types.
 
