@@ -26,9 +26,11 @@ It's a static site on GitHub Pages at [maintenancepage.stux.games](https://maint
 ./dev-server.sh            # http://127.0.0.1:8000, DEV_MODE on (dev banner)
 ./dev-server.sh 8080       # another port
 ./dev-server.sh --no-dev-mode   # exactly as production renders
+./dev-server.sh --lan      # also reachable from phones on your network
 ```
 
-On Windows use `dev-server.bat` with the same arguments. The server is PHP 7.4's built-in
+On Windows use `dev-server.bat` with the same arguments. `--lan` prints the addresses to open on
+the other device (usually the `192.168.x.x` one). The server is PHP 7.4's built-in
 server with `.github/dev-router.php`, which serves the folder the way GitHub Pages does.
 With DEV_MODE on, `?banner=soon,maintenance,site` previews the other banner types.
 
@@ -46,7 +48,7 @@ Every page lists `favicon.ico`, `apple-touch-icon.png` and `site.webmanifest` in
 
 This project uses [Date Versioning](https://datevers.ing): each release is numbered by its UTC release date as `YY.MM.DD` (for example `26.10.23`), with `-1`, `-2`… for later releases the same day. See [CHANGELOG.md](CHANGELOG.md) for what changed in each release.
 
-Releases are made on the `test` branch and go live when its pull request into `main` is merged; see [CONTRIBUTING.md](CONTRIBUTING.md#branches).
+Releases are made on the `test` branch, go to `staging` through a pull request, and go live when the pull request from `staging` into `main` is merged; see [CONTRIBUTING.md](CONTRIBUTING.md#branches-and-going-live).
 
 ## Copyright
 

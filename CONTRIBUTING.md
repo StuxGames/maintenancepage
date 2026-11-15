@@ -8,11 +8,15 @@ This document is for anyone working on the maintenancepage.stux.games page itsel
 
 ## Local setup
 
-There's no build step or dependencies. Run `./dev-server.sh [port] [--no-dev-mode]` (or
+There's no build step or dependencies. Run `./dev-server.sh [port] [--no-dev-mode] [--lan]` (or
 `dev-server.bat` on Windows) and open `http://127.0.0.1:8000`. DEV_MODE is on by default: the
 dev router answers `/assets/dev-mode.js` with `window.SITE_DEV_MODE = true`, so every page shows
 the dev banner. `--no-dev-mode` renders exactly as production does. The server needs PHP 7.4
 (`$PHP_BIN`, `php74`, or `%LOCALAPPDATA%\Programs\PHP\7.4\php.exe`).
+
+`--lan` listens on all interfaces (`0.0.0.0`) instead of `127.0.0.1`, so a phone or another
+device on your network can open it: it prints one URL per IPv4 address (usually the
+`192.168.x.x` one). Allow PHP through the firewall if asked.
 
 ## Project conventions
 
@@ -32,11 +36,12 @@ The icon tags and the Discord link preview in each page's `<head>` (between the 
 
 Run `bash tests/run.sh` before every release. It needs Python 3 (and PHP 7.4 for the dev-server checks, which are skipped without it). It checks the version (`tests/version.sh`), that every page's Discord preview is valid, under 3,000 bytes and up to date (and that the 404 page has none), and that the icon set is complete and every page's `<head>` lists it.
 
-## Branches
+## Branches and going live
 
-- Work on `test`, or on a feature branch off it. Never push to `main`
-- Changes reach `main` only through a pull request from `test` into `main`, which needs CI to pass and is reviewed and merged by Leo
-- Merging into `main` deploys maintenancepage.stux.games to GitHub Pages; release commits and tags are made on `test` (`git push origin test --tags`) and go live when the pull request is merged
+- Work and releases happen on `test`, or on a feature branch merged back into it. The commit scripts refuse to run on `staging` or `main`; push a release with `git push origin test --tags`
+- `staging` is pre-production. It changes only through a merged pull request from `test` (`gh pr create --base staging --head test`). There's no staging deployment: a release waits there, checked, before going live
+- `main` is live. It changes only through a merged pull request from `staging` (`gh pr create --base main --head staging`). Merging into `main` deploys maintenancepage.stux.games to GitHub Pages
+- Nothing is pushed straight to `staging` or `main`. Pull requests need CI to pass, and Leo merges them
 
 ## Versioning
 
